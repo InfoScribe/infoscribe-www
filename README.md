@@ -1,4 +1,4 @@
-# infoscribe-www
+# infoscribe-www README
 
 An initial commit of the InfoScribe website. This is focussed around getting the templating and scaffolding right and as an exploratory exercise.
 
@@ -12,7 +12,7 @@ To start the server, simply use NPM, as you would to start any node.js service:
 
 ## Next steps
 
-### Making the JavaScript & CSS easier to main 
+### Making the JavaScript & CSS easier to maintain
 
 The next steps will include adding a Bootstrap theme with less/grunt to make the CSS easy to maintain and reducing the number of different CSS files we have.
 
