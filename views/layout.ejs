@@ -7,29 +7,28 @@
     	<meta name="description" content="">
     	<meta name="author" content="">
   		<title>InfoScribe</title>
-      <link rel="stylesheet" href="css/lib/bootstrap.min.css">
-      <link rel="stylesheet" href="css/lib/bootstrap-theme.min.css">
+      <link rel="stylesheet" href="/css/lib/bootstrap.min.css">
+      <link rel="stylesheet" href="/css/lib/bootstrap-theme.min.css">
       <!-- Custom styles for this template -->
-    	<link href="css/infoscribe.css" rel="stylesheet">
-      <script src="js/lib/jquery.min.js"></script>
+    	<link href="/css/infoscribe.css" rel="stylesheet">
+      <script src="/js/lib/jquery.min.js"></script>
       <!-- Latest compiled and minified JavaScript -->
-      <script src="js/lib/bootstrap.min.js"></script>
-    	<script type="text/javascript" src="js/lib/moment.js"></script>
-  		<script type="text/javascript" src="js/lib/angular.min.js"></script>
-  		<script type="text/javascript" src="js/infoscribe.js"></script>
-  		<script type="text/javascript" src="js/transcriptions.js"></script>
+      <script src="/js/lib/bootstrap.min.js"></script>
+    	<script type="text/javascript" src="/js/lib/moment.js"></script>
+  		<script type="text/javascript" src="/js/lib/angular.min.js"></script>
+  		<script type="text/javascript" src="/js/infoscribe.js"></script>
+  		<script type="text/javascript" src="/js/transcriptions.js"></script>
 	</head>
 	<body>
     <div class="container">
       <!-- @todo Refactor to be responsive on mobile & tablet devices -->
-      <div class="row" style="margin: 20px -10px;">
+      <div class="row" style="margin: 20px -20px;">
         <div class="col-sm-12">
           <h1 style="margin-top: 0;" class="pull-left">InfoScribe</h1>
           <ul class="nav nav-pills pull-right">
-            <li class="active"><a href="/">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
-            <li><a href="#">Contributor login</a></li>
+            <li <% if (url == "/") { %>class="active"<% } %> ><a href="/">Home</a></li>
+            <li <% if (url.match("^/about")) { %>class="active"<% } %> ><a href="/about">About</a></li>
+            <li><a data-toggle="modal" data-target="#signupModal">Sign up / Log in</a></li>
           </ul>
         </div>
       </div>
@@ -38,7 +37,66 @@
     <div class="container">
       <div class="row">
         <div class="col-sm-12">
+          <br/>
           <p class="text-center lead">&copy; InfoScribe 2015</p>
+        </div>
+      </div>
+    </div>
+    <!-- Modals for Login and Signup -->
+    <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="signupModalLabel" aria-hidden="true">
+      <div class="modal-dialog" style="max-width: 400px;">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="signupModalLabel">Sign up</h4>
+          </div>
+          <div class="modal-body">
+            <p>
+              <a class="btn btn-block btn-lg btn-default">Sign up with Facebook</a>
+              <a class="btn btn-block btn-lg btn-default">Sign up with Google</a>
+            </p>
+            <p class="lead text-center text-muted">or</p>
+            <p>
+              <a class="btn btn-block btn-lg btn-default">Sign up with Email</a>
+            </p>
+            <br/>
+            <p class="text-center">
+              <a href="" data-dismiss="modal" data-toggle="modal" data-target="#loginModal">Already have an account? Sign in here</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+      <div class="modal-dialog" style="max-width: 400px;">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="loginModalLabel">Log in</h4>
+          </div>
+          <div class="modal-body">
+            <p>
+              <a class="btn btn-block btn-lg btn-default">Log in with Facebook</a>
+              <a class="btn btn-block btn-lg btn-default">Log in with Google</a>
+            </p>
+            <p class="lead text-center text-muted">or</p>
+            <form>
+              <h4>Log in via email</h4>
+              <p>
+                <input type="text" name="email" class="form-control" placeholder="email address" />
+              </p>
+              <p>
+                <input type="password" name="password" class="form-control" placeholder="password" />
+              </p>
+              <p>
+                <button class="btn btn-block btn-lg btn-default">Log in</button>
+              </p>
+            </form>
+            <br/>
+            <p class="text-center">
+              <a href="" data-dismiss="modal" data-toggle="modal" data-target="#signupModal">Don't have an account? Sign up here</a>
+            </p>
+          </div>
         </div>
       </div>
     </div>

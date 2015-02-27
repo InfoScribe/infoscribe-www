@@ -15,8 +15,21 @@ app.set('view engine', 'ejs');
 app.engine('ejs', ejs.__express);
 partials.register('.ejs', ejs);
 
+
+// Set variables available to all templates
+app.use(function (req, res, next) {
+   res.locals = {
+       url: req.url
+   };
+   next();
+});
+
 app.get('/', function(req, res){
     res.render('index');
+});
+
+app.get('/about', function(req, res){
+    res.render('about');
 });
 
 app.get('/dashboard', function(req, res){

@@ -1,0 +1,28 @@
+body {
+    background-color: #f1f1f1;
+}
+
+.jumbotron-home {
+	background-image: url('/img/landing-background.png');
+	background-size: cover;
+}
+
+.jumbotron-home-inner {
+    background-color: white;
+    background-color: rgba(255,255,255,0.9);
+    padding: 20px;
+}
+
+.jumbotron-home h1 {
+    margin-top: 0;
+    color: black;
+}
+
+h1,h2,h3,h4 {
+    color: #ee3739;
+}
+
+.container-default {
+    border-radius: 10px;
+    background: #fff;
+}
