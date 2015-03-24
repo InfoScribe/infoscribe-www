@@ -1,0 +1,15 @@
+var scriberSchema = new mongoose.Schema({
+email: { type: String, unique: true, lowercase: true },
+password: String,
+
+ 
+profile: {
+name: { type: String, default: '' },
+organization: { type: Number, default: '' },
+gravatar: { type: String, default: '' },
+projects: Array,
+rank: {type:Number, default:0},
+
+},
+ 
+}); 
