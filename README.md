@@ -1,8 +1,6 @@
 # infoscribe-www README
 
-An initial commit of the InfoScribe website. This is focussed around getting the templating and scaffolding right and as an exploratory exercise.
-
-Goals include getting the HTML and Bootstrap CSS right, and to look at the Angular and Node.js integration and API endpoints, and how the front end should talk to the backend.
+This is an in-development release of the InfoScribe website, which is written in node.js (with express).
 
 ## How to run the server
 
@@ -10,16 +8,41 @@ To start the server, simply use NPM, as you would to start any node.js service:
 
     npm start
 
-## Next steps
+## Models, Routes & Views
 
-### Making the JavaScript & CSS easier to maintain
+* Models are stored in the ./models/ directory.
 
-The next steps will include adding a Bootstrap theme with less/grunt to make the CSS easy to maintain and reducing the number of different CSS files we have.
+* Routes (aka Controllers) are defined in server.js, with the logic for individual routes in ./routes/ directory.
 
-Bower would help us manage the JavaScript dependancies although I'm mindful of keeping things simple.
+* Views are stored in the ./views/ directory.
 
-### Client/Server design
+The templates use EJS (Embedded JavaScript), allowing the same templates to be used on the both the server and client and the same JavaScript to be used throughout the project (in the server, client and in templates).
 
-The plan is to build an API driven service, although I have concerns that maintaining an Angular client application in practice may prove a barrier to other people working on the front end (as there is quite a steep learning curve there) and it might be easier to leverage server side templates.
+## CSS & JavaScript
 
-Am holding off on making a decision about this for now, until we've had a chance to explore and discuss it.
+CSS is auto-generated from .less files in the ./public/css/ directory automatically any time it is changed (simply refresh the page to view changes).
+
+JavaScript files are loaded in a similar way to CSS files, with auto-minification and version control when deployed in production.
+
+See ./views/layout.ejs for an example of the markup for including CSS or JS files.
+
+## API Documentation
+
+A future release will feature API documentation.
+
+# Acknowledgments
+
+This projects contains portions of code from the hackathon-starter project, incorporated under the MIT License by by Sahat Yalkabov.
+
+License
+-------
+
+The MIT License (MIT)
+
+Copyright (c) 2014 Sahat Yalkabov
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

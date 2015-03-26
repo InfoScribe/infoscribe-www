@@ -1,0 +1,53 @@
+// Grunt Task copies this from bower_components dir
+
+// Start with base bootstrap (all components!)
+@import "bootstrap/bootstrap.less";
+
+// Include additional files which require / extend bootstrap
+@import "bootstrap.overrides.less";
+@import "bootstrap.select.less";
+@import "bootstrap.vertical-tabs.less";
+@import "bootstrap.wysihtml5.less";
+
+// Additional dependancies
+@import "animations.less";
+@import "font-awesome.less";
+
+// Define behaviour when javascript is not enabled (or explicitly when it is)
+@import "no-js.less";
+
+.navbar-brand {
+  color: @brand-primary !important;
+  font-weight: 600;
+  font-size: 28px;
+}
+
+.page-contents {
+  background: #fff;
+  border-radius: 4px;
+  padding: 20px;
+}
+
+.page-contents h1 {
+  margin-top: 0;
+}
+
+.modal-title  {
+  color: @brand-primary;
+}
+
+.jumbotron-home {
+  background-image: url('/images/landing-background.png');
+  background-size: cover;
+  padding: 0px;
+}
+
+.jumbotron-home h1 {
+  font-size: 42px;
+}
+
+.jumbotron-home .jumbotron-inner {
+  background-color: white;
+  background-color: rgba(255,255,255,0.9);
+  padding: 20px;
+}

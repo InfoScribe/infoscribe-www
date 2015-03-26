@@ -1,0 +1,39 @@
+<div class="page-contents">
+  <div class="row">
+    <div class="col-sm-9">
+      <h1 class="page-header">Add new project</h1>
+      <form role="form" method="post" action="/project/new" class="form-horizontal" data-validator="true">
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10 messages"></div>
+        </div>
+        <input type="hidden" name="_csrf" value="<%= _csrf %>">
+        <div class="form-group">
+          <label for="name" class="col-sm-2 control-label">Project Name</label>
+          <div class="col-sm-10"><input type="text" name="name" id="name" autofocus="" autocomplete="off" class="form-control"/></div>
+        </div>
+        <div class="form-group">
+          <label for="message" class="col-sm-2 control-label">Description</label>
+          <div class="col-sm-10"><textarea type="text" name="description" id="description" rows="7" class="form-control" autocomplete="off" ></textarea></div>
+        </div>
+        <div class="form-group text-right">
+          <div class="col-sm-offset-2 col-sm-10"><button type="submit" class="btn btn-primary"><i class="fa fa-fw fa-plus"></i> Add project</button></div>
+        </div>
+      </form>
+    </div>
+    <div class="col-sm-3">
+      <h4 class="text-muted">Project created by</h4>
+      <div class="media">
+        <div class="media-left">
+          <a href="#">
+           <img src="<%= user.gravatar(50) %>" alt="Avatar" class="img-circle">
+          </a>
+        </div>
+        <div class="media-body">
+          <h3 class="media-heading"><%= user.profile.name || "Anonymous" %></h3>
+          <span class="text-muted"><i class="fa fa-clock-o"></i> <time><%= new Date().toDateString() %></time></span>
+        </div>
+      </div>
+      </h3>
+    </div>
+  </div>
+</div>
