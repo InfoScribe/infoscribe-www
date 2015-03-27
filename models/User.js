@@ -4,6 +4,10 @@ var mongoose = require('mongoose'),
     crypto = require('crypto'),
     slug = require('slug');
 
+var config = {
+  secrets: require('../config/secrets')
+};
+
 var schema = new mongoose.Schema({
   id: Number,
   email: { type: String, unique: true, lowercase: true, required : true},
