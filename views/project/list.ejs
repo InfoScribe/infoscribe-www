@@ -1,9 +1,9 @@
-<div class="row">
+<div class="row" style="margin-top: 20px;">
   <div class="col-sm-6 col-md-7">
-    <h1 class="page-header" style="margin-top: 0;">Projects</h1>
+    <h1 class="page-header" style="margin-top: 0px;">Projects</h1>
   </div>
   <div class="col-sm-3 col-md-2">
-    <a class="btn btn-block btn-success" href="/project/new"><i class="fa fa-lg fa-fw fa-plus"></i> New project</a>
+    <a class="btn btn-block btn-success" href="/project/new" style="margin-bottom: 10px;"><i class="fa fa-lg fa-fw fa-plus"></i> New project</a>
   </div>
   <div class="col-sm-3 col-md-3">
     <form name="search-projects" method="get" action="/search">
@@ -25,7 +25,7 @@
   <% projects.forEach(function(project) { %>
       <div class="panel panel-default">
         <div class="panel-body">
-            <h2 style="margin-top: 0;"><a href="<%= project.getUrl() %>"><i class="fa fa-fw fa-file-text-o"></i></a> <a href="<%= project.getUrl() %>"><%= project.name %></a></h2>
+            <h3 style="margin-top: 0;"><a href="<%= project.getUrl() %>"><i class="fa fa-fw fa-file-text-o"></i></a> <a href="<%= project.getUrl() %>"><%= project.name %></a></h3>
             <span class="text-muted">created by</span>
             <span>
               <img src="<%= project.creatorGravatar(20) %>" alt="Avatar" hspace="3" class="img-circle" />
