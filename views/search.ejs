@@ -1,7 +1,8 @@
-<h1 class="page-header">Search</h1>
+<h1 class="page-header" style="margin-top: 0;">Search</h1>
 <form name="search-projects" method="get" action="/search" class="form-horizontal">
   <div class="form-group">
     <div class="input-group col-sm-offset-3 col-sm-6"> 
+      <div class="input-group-addon"><i class="fa fa-search"></i></div>
       <input name="q" value="<%= query %>" type="text" class="form-control" placeholder="Search" />
       <div class="input-group-btn">
         <input type="submit" name="search" value="Search" class="btn btn-primary" />
@@ -12,28 +13,20 @@
 <% if (query) { %>
 <div class="row">
   <div class="col-sm-offset-1 col-sm-10">
-    <p class="lead"><%= count %> search results for "<%= query %>"</p>
-    <table class="table table-striped">
-      <tbody>
-      <% results.forEach(function(project) { %>
-        <tr>
-          <td class="col-xs-7 col-sm-8 col-md-9">
-            <span>
-              <h4 style="display: inline-block;"><a href="/project/<%= project.id %>"><i class="fa fa-fw fa-file-text-o"></i></a> <a href="/project/<%= project.id %>"><%= project.name %></a></h4>
-            </span>
-            <span class="text-muted">by</span>
+    <p class="lead"><%= count %> results for "<%= query %>"</p>
+    <% results.forEach(function(project) { %>
+      <div class="panel panel-default">
+        <div class="panel-body">
+            <h2 style="margin-top: 0;"><a href="<%= project.getUrl() %>"><i class="fa fa-fw fa-file-text-o"></i></a> <a href="<%= project.getUrl() %>"><%= project.name %></a></h2>
+            <span class="text-muted">created by</span>
             <span>
               <img src="<%= project.creatorGravatar(20) %>" alt="Avatar" hspace="3" class="img-circle" />
               <%= project.creator.name || "Anonymous" %>
             </span>
-          </td>
-          <td class="col-xs-5 col-sm-4 col-md-3 text-muted text-right" style="vertical-align: middle;">
             <i class="fa fa-lg fa-fw fa-clock-o"></i> <time class="timeago" datetime="<%= project.date.toISOString() %>"><%= project.date.toDateString() %></time>
-          </td>
-        </tr>
-      <% }) %>
-      </tbody>
-    </table>
+        </div>
+      </div>
+    <% }) %>
   </div>
 </div>
 <% } %>

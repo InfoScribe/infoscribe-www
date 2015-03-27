@@ -1,14 +1,15 @@
 <div class="row">
-  <div class="col-sm-5">
-    <h1 class="page-header">Projects</h1>
+  <div class="col-sm-6 col-md-7">
+    <h1 class="page-header" style="margin-top: 0;">Projects</h1>
   </div>
-  <div class="col-sm-4" style="padding-top: 50px;">
-    <a class="pull-right btn btn-success" href="/project/new"><i class="fa fa-lg fa-fw fa-plus"></i> Add a new project</a>
+  <div class="col-sm-3 col-md-2">
+    <a class="btn btn-block btn-success" href="/project/new"><i class="fa fa-lg fa-fw fa-plus"></i> New project</a>
   </div>
-  <div class="col-sm-3" style="padding-top: 50px;">
+  <div class="col-sm-3 col-md-3">
     <form name="search-projects" method="get" action="/search">
       <div class="form-group">
-        <div class="input-group"> 
+        <div class="input-group">
+          <div class="input-group-addon"><i class="fa fa-search"></i></div>
           <input name="q" value="" type="text" class="form-control" placeholder="Search" />
           <div class="input-group-btn">
             <input type="submit" name="search" value="Search" class="btn btn-primary" />
@@ -21,27 +22,19 @@
 <br/>
 <% if (count > 0) { %>
   <% include ../partials/projects-pagination %>
-  <table class="table table-striped">
-    <tbody>
-    <% projects.forEach(function(project) { %>
-      <tr>
-        <td class="col-xs-7 col-sm-8 col-md-9">
-          <span>
-            <h4 style="display: inline-block;"><a href="<%= project.getUrl() %>"><i class="fa fa-fw fa-file-text-o"></i></a> <a href="<%= project.getUrl() %>"><%= project.name %></a></h4>
-          </span>
-          <span class="text-muted">created by</span>
-          <span>
-            <img src="<%= project.creatorGravatar(20) %>" alt="Avatar" hspace="3" class="img-circle" />
-            <%= project.creator.name || "Anonymous" %>
-          </span>
-        </td>
-        <td class="col-xs-5 col-sm-4 col-md-3 text-muted text-right" style="vertical-align: middle;">
-          <i class="fa fa-lg fa-fw fa-clock-o"></i> <time class="timeago" datetime="<%= project.date.toISOString() %>"><%= project.date.toDateString() %></time>
-        </td>
-      </tr>
-    <% }) %>
-    </tbody>
-  </table>
+  <% projects.forEach(function(project) { %>
+      <div class="panel panel-default">
+        <div class="panel-body">
+            <h2 style="margin-top: 0;"><a href="<%= project.getUrl() %>"><i class="fa fa-fw fa-file-text-o"></i></a> <a href="<%= project.getUrl() %>"><%= project.name %></a></h2>
+            <span class="text-muted">created by</span>
+            <span>
+              <img src="<%= project.creatorGravatar(20) %>" alt="Avatar" hspace="3" class="img-circle" />
+              <%= project.creator.name || "Anonymous" %>
+            </span>
+            <i class="fa fa-lg fa-fw fa-clock-o"></i> <time class="timeago" datetime="<%= project.date.toISOString() %>"><%= project.date.toDateString() %></time>
+        </div>
+      </div>
+  <% }) %>
   <% include ../partials/projects-pagination %>
 <% } else { %>
   <p class="text-center lead">There are no projects yet.</p>
