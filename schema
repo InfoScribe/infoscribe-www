@@ -1,0 +1,56 @@
+var scriberSchema = new mongoose.Schema({
+email: { type: String, unique: true, lowercase: true },
+password: String,
+id: {type: Number, unique: true},
+
+profile: {
+name: { type: String, default: '' },
+organization: { type: Number, default: '' },
+gravatar: { type: String, default: '' },
+projects: Array,
+rank: {type:Number, default:0},
+contributor: {type:Boolean, default:false},
+bio: {type: String, default:''}
+},
+ 
+}); 
+
+var orgSchema = new mongoose.Schema({
+wesbite: { type: String, unique: true, lowercase: true },
+id: {type:Number, unique:true},
+
+profile: {
+name: { type: String, default: '' },
+gravatar: { type: String, default: '' },
+members: Array,
+bio: {type: String, default:''}
+},
+ 
+}); 
+
+var projectSchema = new mongoose.Schema({
+owner: Number,
+id: {type:Number, unique:true},
+
+profile: {
+title: { type: String, default: '' },
+gravatar: { type: String, default: '' },
+scribers: Array,
+description: {type: String, default:''},
+documents: Array,
+sample: String
+},
+
+schema: {
+fields: Array
+}
+ 
+}); 
+
+var documentSchema = new mongoose.Schema({
+project: Number,
+id: {type:Number, unique:true},
+transcriptions: {
+count: {type: Number, default:0},
+values: Array
+}); 
