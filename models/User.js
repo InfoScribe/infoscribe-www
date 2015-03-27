@@ -1,5 +1,4 @@
 var mongoose = require('mongoose'),
-    mongooseAutoIncrement = require('mongoose-auto-increment'),
     bcrypt = require('bcrypt-nodejs');
     crypto = require('crypto'),
     slug = require('slug');
@@ -9,7 +8,6 @@ var config = {
 };
 
 var schema = new mongoose.Schema({
-  id: Number,
   email: { type: String, unique: true, lowercase: true, required : true},
   password: String,
   picture: String,
@@ -86,16 +84,5 @@ schema.methods.gravatar = function(size) {
   var md5 = crypto.createHash('md5').update(this.email).digest('hex');
   return 'https://gravatar.com/avatar/' + md5 + '?s=' + size + '&d=retro';
 };
-
-/**
- * Auto-incrimenting ID value (in addition to _id property)
-  */
-var connection = mongoose.createConnection(config.secrets.db); 
-mongooseAutoIncrement.initialize(connection);
-schema.plugin(mongooseAutoIncrement.plugin, {
-    model: 'User',
-    field: 'id',
-    startAt: 1
-});
 
 module.exports = mongoose.model('User', schema);
