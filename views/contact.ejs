@@ -1,8 +1,11 @@
 <div class="page-contents">
-  <h1 class="page-header">Contact form</h1>
+  <h1 class="page-header">Contact</h1>
   <% if (messages.success) { %>
   <p class="lead">Thanks for getting in touch.</p>
   <% } else { %>
+  <p class="lead text-center">
+    If you'd like to get in touch, please use the contact form below.
+  </p>
   <form role="form" method="post" action="/contact" class="form-horizontal" data-validator="true">
     <div class="form-group">
       <div class="col-sm-offset-2 col-sm-8 messages"></div>

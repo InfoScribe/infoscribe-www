@@ -1,14 +1,12 @@
 # infoscribe-www README
 
-This is an in-development release of the InfoScribe website, which is written in node.js (with express).
+This is an in-development release of the InfoScribe website.
 
-## How to run the server
+It is written in node.js (with Express and JavaScript templates) and uses mongodb for backend storage.
 
-To start the server, simply use NPM, as you would to start any node.js service:
+## Overview
 
-    npm start
-
-## Models, Routes & Views
+### Models, Routes & Views
 
 * Models are stored in the ./models/ directory.
 
@@ -16,9 +14,9 @@ To start the server, simply use NPM, as you would to start any node.js service:
 
 * Views are stored in the ./views/ directory.
 
-The templates use EJS (Embedded JavaScript), allowing the same templates to be used on the both the server and client and the same JavaScript to be used throughout the project (in the server, client and in templates).
+The templates use EJS (Embedded JavaScript), allowing the same templates to be used on the both the server and client and plain JavaScript to be used throughout the project.
 
-## CSS & JavaScript
+### CSS & JavaScript
 
 CSS is auto-generated from .less files in the ./public/css/ directory automatically any time it is changed (simply refresh the page to view changes).
 
@@ -26,11 +24,11 @@ JavaScript files are loaded in a similar way to CSS files, with auto-minificatio
 
 See ./views/layout.ejs for an example of the markup for including CSS or JS files.
 
-## API Documentation
+### API Documentation
 
 A future release will feature API documentation.
 
-# Acknowledgments
+## Acknowledgments
 
 This projects contains portions of code from the hackathon-starter project, incorporated under the MIT License by by Sahat Yalkabov.
 
