@@ -110,10 +110,7 @@ app.use(function(req, res, next) {
 
   // Make user object available in templates.
   res.locals.user = req.user;
-  
-  // Export selected theme to all templates (so can be used in layout)
-  res.locals.theme = req.session.theme;
-  
+    
   next();
 });
 app.use(function(req, res, next) {
@@ -122,7 +119,7 @@ app.use(function(req, res, next) {
   // Exceptions for paths we want to ignore
   // e.g. login pages, JavaScript files that make ajax calls
   var path = req.path.split('/')[1];
-  if (/auth|login|css|images|logout|theme|signup|js|fonts|favicon/i.test(path))
+  if (/auth|login|css|images|logout|signup|js|fonts|favicon/i.test(path))
     return next();
 
   if (req.path == "/account/password")
@@ -146,7 +143,6 @@ var routes = {
   home: require('./routes/home'),
   about: require('./routes/about'),
   contact : require('./routes/contact'),
-  theme: require('./routes/theme'),
   project: require('./routes/project'),
   search: require('./routes/search')
 };
@@ -174,7 +170,6 @@ app.get('/', routes.home.index);
 app.get('/about', routes.about.getAbout);
 app.get('/login', routes.user.getLogin);
 app.post('/login', routes.user.postLogin);
-app.post('/theme', routes.theme.postTheme);
 app.get('/logout', routes.user.logout);
 app.get('/reset-password', routes.user.getResetPassword);
 app.post('/reset-password', routes.user.postResetPassword);
