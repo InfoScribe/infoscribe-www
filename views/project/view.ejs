@@ -2,7 +2,9 @@
   <div class="row">
     <div class="col-sm-9">
   <h1 class="page-header"><%= project.name %></h1>
-      <p class="lead"><%= project.description %></p>
+      <% project.description.split("\n").forEach(function(line) { %>
+      <p class="lead"><%= line %></p>
+      <% }); %>
       <% if (typeof(user) != 'undefined' && user.id == project.creator.id) { %>
       <br/>
       <p class="text-right">
