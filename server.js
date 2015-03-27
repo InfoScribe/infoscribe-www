@@ -207,16 +207,8 @@ app.get('/auth/facebook', passport.authenticate('facebook', { scope: ['email', '
 app.get('/auth/facebook/callback', passport.authenticate('facebook', { failureRedirect: '/profile' }), function(req, res) {
   res.redirect(req.session.returnTo || '/profile');
 });
-app.get('/auth/github', passport.authenticate('github'));
-app.get('/auth/github/callback', passport.authenticate('github', { failureRedirect: '/profile' }), function(req, res) {
-  res.redirect(req.session.returnTo || '/profile');
-});
 app.get('/auth/google', passport.authenticate('google', { scope: 'profile email' }));
 app.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/profile' }), function(req, res) {
-  res.redirect(req.session.returnTo || '/profile');
-});
-app.get('/auth/twitter', passport.authenticate('twitter'));
-app.get('/auth/twitter/callback', passport.authenticate('twitter', { failureRedirect: '/profile' }), function(req, res) {
   res.redirect(req.session.returnTo || '/profile');
 });
 
