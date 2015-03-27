@@ -103,7 +103,7 @@ app.use(function(req, res, next) {
 app.use(function(req, res, next) {
 
   // Expose site name globally
-  app.locals.siteName = config.app.name;
+  res.locals.siteName = config.app.name;
   
   // Set default title name
   res.locals.title = config.app.name;
