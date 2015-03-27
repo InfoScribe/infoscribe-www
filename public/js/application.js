@@ -60,7 +60,7 @@ $(function() {
       if (e.keyCode === 69) { // The 'e' key (for edit).
         $('*[data-shortcut-key="e"]')[0].click();
       } else if (e.keyCode === 83) { // The 's' key (for search).
-          // @todo call .focus() on search input
+        window.location = "/search";
       } else if (e.keyCode === 80) { // The 'p' key (for profile).
         $('*[data-shortcut-key="p"]')[0].click();
       } else if (e.keyCode === 72) { // The 'h' key (for home).
