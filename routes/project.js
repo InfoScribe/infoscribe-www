@@ -74,7 +74,7 @@ exports.getProject = function(req, res) {
     if (err)
       return res.render('404');
     
-    return res.render('project/view', { title: res.locals.title + " - " + project.title, project: project });
+    return res.render('project/view', { title: res.locals.title + " - " + project.name, project: project });
   });
 };
 
@@ -94,7 +94,7 @@ exports.getEditProject = function(req, res) {
         && req.user.permissions.admin != true )
       return res.render('403');
     
-    return res.render('project/edit', { title: res.locals.title + " - Edit " + project.title, project: project });
+    return res.render('project/edit', { title: res.locals.title + " - Edit " + project.name, project: project });
   });
 };
 
