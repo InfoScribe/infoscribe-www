@@ -2,14 +2,14 @@ var scriberSchema = new mongoose.Schema({
 email: { type: String, unique: true, lowercase: true },
 password: String,
 id: {type: Number, unique: true},
+projects: Array, // array of project IDs
+rank: {type:Number, default:0},
+contributor: {type:Boolean, default:false},
 
 profile: {
 name: { type: String, default: '' },
 organization: { type: Number, default: '' },
 gravatar: { type: String, default: '' },
-projects: Array,
-rank: {type:Number, default:0},
-contributor: {type:Boolean, default:false},
 bio: {type: String, default:''}
 },
  
@@ -22,7 +22,7 @@ id: {type:Number, unique:true},
 profile: {
 name: { type: String, default: '' },
 gravatar: { type: String, default: '' },
-members: Array,
+members: Array, // array of user IDs
 bio: {type: String, default:''}
 },
  
@@ -31,26 +31,32 @@ bio: {type: String, default:''}
 var projectSchema = new mongoose.Schema({
 owner: Number,
 id: {type:Number, unique:true},
+status: Number, // e.g. "pre-launch"/"active"/"embargoed"/"published"/"expired" = 0/1/2/3/4
 
 profile: {
 title: { type: String, default: '' },
-gravatar: { type: String, default: '' },
-scribers: Array,
-description: {type: String, default:''},
-documents: Array,
-sample: String
+gravatar: { type: String, default: '' }, // url of gravatar/image for the project
+scribers: Array,  // array of user IDs
+description: {type: String, default:''}, 
+documents: Array, // array of document IDs
+sample: Number // document ID of sample document  
 },
 
 schema: {
-fields: Array
+fields: [{field_id:Number, position:[Number, Number], width:Number, height:Number, datatype:String}]
 }
  
 }); 
 
 var documentSchema = new mongoose.Schema({
-project: Number,
+project: Number, // project ID to which this document belongs
 id: {type:Number, unique:true},
 transcriptions: {
-count: {type: Number, default:0},
-values: Array
+count: {type: Number, default:0}, // number of completed transcriptions on this document
+values: [{field_id:Number, value:String}] //actual values entered
 }); 
+
+// possible index for projects
+projects.createIndex( { "owner": 1, "status": 1 } )
+
+
